@@ -6,11 +6,7 @@ namespace WpfSample
 {
     public class MainWindowViewModel : ViewModel
     {
-        public MainWindowMode Mode
-        {
-            get => _state.Mode;
-            set => _state.Mode = value;
-        }
+        public MainWindowMode Mode => _state.Mode;
 
         public ViewModelCommand UserScreenCommand { get; }
         public ViewModelCommand ProductScreenCommand { get; }
@@ -25,8 +21,8 @@ namespace WpfSample
             stateListener.RegisterHandler(nameof(_state.Mode), (_, __) => RaisePropertyChanged(nameof(Mode)));
             CompositeDisposable.Add(stateListener);
 
-            UserScreenCommand = new ViewModelCommand(() => Mode = MainWindowMode.User);
-            ProductScreenCommand = new ViewModelCommand(() => Mode = MainWindowMode.Product);
+            UserScreenCommand = new ViewModelCommand(() => _state.Mode = MainWindowMode.User);
+            ProductScreenCommand = new ViewModelCommand(() => _state.Mode = MainWindowMode.Product);
         }
     }
 }
