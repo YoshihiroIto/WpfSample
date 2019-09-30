@@ -14,19 +14,14 @@
     <Window.Resources>
         <Style TargetType="{x:Type Button}">
             <Setter Property="Padding" Value="8,4" />
+            <Setter Property="Margin" Value="8" />
         </Style>
     </Window.Resources>
 
     <DockPanel>
         <UniformGrid VerticalAlignment="Top" DockPanel.Dock="Top">
-            <Button
-                Margin="8"
-                Command="{Binding UserScreenCommand, Mode=OneTime}"
-                Content="User" />
-            <Button
-                Margin="8"
-                Command="{Binding ProductScreenCommand, Mode=OneTime}"
-                Content="Product" />
+            <Button Command="{Binding UserScreenCommand, Mode=OneTime}" Content="User" />
+            <Button Command="{Binding ProductScreenCommand, Mode=OneTime}" Content="Product" />
         </UniformGrid>
 
         <ContentControl Content="{Binding}">
